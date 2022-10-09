@@ -17,8 +17,8 @@ namespace api.Entities
         public int Xp { get; set; } = 1;
 
         // Foreign keys
-        [ForeignKey("PartId")]
-        public Guid PartId { get; set; }
+        [Required, ForeignKey("PartId")]
+        public Guid? PartId { get; set; }
         public Part? Part { get; set; }
     }
 }
