@@ -55,6 +55,7 @@ namespace api.Extensions
         public static void ConfigureServices(this IServiceCollection services)
         {
             services.AddScoped<IPartService, PartService>();
+            services.AddScoped<IAchievementService, AchievementService>();
         }
     }
 }
