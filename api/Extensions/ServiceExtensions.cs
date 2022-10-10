@@ -1,5 +1,8 @@
-﻿using api.Data;
+﻿using api.ActionFilters;
+using api.Data;
 using api.Repository;
+using api.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Extensions
@@ -37,6 +40,21 @@ namespace api.Extensions
         public static void ConfigureRepositoryManager(this IServiceCollection services)
         {
             services.AddScoped<IRepositoryManager, RepositoryManager>();
+        }
+
+        public static void ConfigureValidationFilter(this IServiceCollection services)
+        {
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
+
+            services.AddScoped<ValidationFilterAttribute>();
+        }
+
+        public static void ConfigureServices(this IServiceCollection services)
+        {
+            services.AddScoped<IPartService, PartService>();
         }
     }
 }

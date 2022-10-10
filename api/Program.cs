@@ -9,6 +9,8 @@ builder.Services.ConfigureSqlContext(builder.Configuration);
 builder.Services.ConfigureCors();
 builder.Services.ConfigureAutoMapper();
 builder.Services.ConfigureRepositoryManager();
+builder.Services.ConfigureValidationFilter();
+builder.Services.ConfigureServices();
 
 builder.Services.AddControllers(config =>
 {
