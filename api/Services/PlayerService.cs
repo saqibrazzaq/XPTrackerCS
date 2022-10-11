@@ -64,5 +64,63 @@ namespace api.Services
             _mapper.Map(dto, entity);
             _repositoryManager.Save();
         }
+
+        public void UpdateAchievements(Guid playerId)
+        {
+            RemovePreviouslyDeletedAchievements(playerId);
+            AddNewlyAddedAchievements(playerId);
+        }
+
+        private void AddNewlyAddedAchievements(Guid playerId)
+        {
+            var playerAchievements = _repositoryManager.PlayerAchievementRepository.FindByCondition(
+                x => x.PlayerId == playerId,
+                false)
+                .Select(x => x.AchievementId)
+                .ToList();
+            var achievements = _repositoryManager.AchievementRepository.FindByCondition(
+                x => playerAchievements.Contains(x.AchievementId) == false,
+                true);
+
+            foreach(Achievement achievement in achievements)
+            {
+                _repositoryManager.PlayerAchievementRepository.Create(
+                    new PlayerAchievement
+                    {
+                        AchievementId = achievement.AchievementId,
+                        PlayerId = playerId,
+                        IsComplete = false
+                    });
+            }
+
+            _repositoryManager.Save();
+        }
+
+        private void RemovePreviouslyDeletedAchievements(Guid playerId)
+        {
+            var achievements = _repositoryManager.AchievementRepository.FindAll(false)
+                .Select(x => x.AchievementId)
+                .ToList();
+            var playerAchievements = _repositoryManager.PlayerAchievementRepository.FindByCondition(
+                x => x.PlayerId == playerId &&
+                achievements.Contains(x.AchievementId ?? Guid.Empty) == false,
+                true);
+
+            foreach (PlayerAchievement playerAchievement in playerAchievements)
+            {
+                _repositoryManager.PlayerAchievementRepository.Delete(playerAchievement);
+            }
+
+            _repositoryManager.Save();
+        }
+
+        public IEnumerable<PlayerAchievementResponseDto> GetAchievements(Guid playerId)
+        {
+            var entities = _repositoryManager.PlayerAchievementRepository.FindByCondition(
+                x => x.PlayerId == playerId,
+                false);
+            var dtos = _mapper.Map<IEnumerable<PlayerAchievementResponseDto>>(entities);
+            return dtos;
+        }
     }
 }

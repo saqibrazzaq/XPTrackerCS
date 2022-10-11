@@ -9,5 +9,7 @@ namespace api.Services
         void Delete(Guid playerId);
         PlayerResponseDto Get(Guid playerId);
         IEnumerable<PlayerResponseDto> GetAll();
+        IEnumerable<PlayerAchievementResponseDto> GetAchievements(Guid playerId);
+        void UpdateAchievements(Guid playerId);
     }
 }

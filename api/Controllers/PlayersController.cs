@@ -53,5 +53,19 @@ namespace api.Controllers
             _playerService.Delete(playerId);
             return NoContent();
         }
+
+        [HttpPost("update-achievements/{playerId}")]
+        public IActionResult UpdateAchievements(Guid playerId)
+        {
+            _playerService.UpdateAchievements(playerId);
+            return NoContent();
+        }
+
+        [HttpGet("achievements/{playerId}")]
+        public IActionResult GetAchievements(Guid playerId)
+        {
+            var res = _playerService.GetAchievements(playerId);
+            return Ok(res);
+        }
     }
 }
