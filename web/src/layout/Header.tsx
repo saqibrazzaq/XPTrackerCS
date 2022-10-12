@@ -8,8 +8,6 @@ const Header = () => {
     <div>
       <VStack>
         <TopNavbar />
-        
-        <Text fontSize={"xl"}>Track progress for learning C#</Text>
       </VStack>
     </div>
   );

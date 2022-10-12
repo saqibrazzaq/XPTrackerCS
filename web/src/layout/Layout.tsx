@@ -20,7 +20,7 @@ const Layout = () => {
     <ChakraProvider theme={theme}>
       <Box textAlign="center">
         <Grid minH="100vh" p={3}>
-          <VStack spacing={8}>
+          <VStack spacing={1}>
             <Header />
               <Outlet />
             <Footer />
