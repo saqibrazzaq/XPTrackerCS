@@ -3,3 +3,7 @@ export interface PlayerResponseDto {
   name?: string;
   experience?: number;
 }
+
+export class PlayerUpdateDto {
+  name?: string = "";
+}

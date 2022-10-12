@@ -17,6 +17,7 @@ import Home from "./home/Home";
 import Players from "./players/Players";
 import Parts from "./parts/Parts";
 import Achievements from "./achievements/Achievements";
+import EditPlayer from "./players/EditPlayer";
 
 export const App = () => (
   <BrowserRouter>
@@ -25,6 +26,8 @@ export const App = () => (
         <Route index element={<Home />} />
         <Route path="players">
           <Route index element={<Players />} />
+          <Route path="update" element={<EditPlayer />} />
+          <Route path="update/:playerId" element={<EditPlayer />} />
         </Route>
         <Route path="parts">
           <Route index element={<Parts />} />

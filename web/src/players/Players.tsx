@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { PlayerResponseDto } from '../dtos/Player';
 import { PlayerApi } from '../apis/playerApi';
-import { Box, Container, Link, Stack, Table, TableContainer, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Button, Container, Flex, Heading, Link, Spacer, Stack, Table, TableContainer, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react";
 import { Link as RouteLink, useParams } from "react-router-dom";
 import UpdateIconButton from "../components/UpdateIconButton";
 import DeleteIconButton from "../components/DeleteIconButton";
@@ -20,7 +20,21 @@ const Players = () => {
   }
 
   const showHeading = () => (
-    <Text fontSize={"xl"}>Players List</Text>
+    <Flex>
+      <Box>
+        <Heading fontSize={"xl"}>Player List</Heading>
+      </Box>
+      <Spacer />
+      <Box>
+        <Link
+          ml={2}
+          as={RouteLink}
+          to={"/players/update"}
+        >
+          <Button colorScheme={"blue"}>Create Player</Button>
+        </Link>
+      </Box>
+    </Flex>
   )
 
   const showPlayers = () => (
