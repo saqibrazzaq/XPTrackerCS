@@ -1,29 +1,17 @@
 import {
-  AlertDialog,
-  AlertDialogBody,
-  AlertDialogContent,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogOverlay,
   Box,
   Button,
-  Center,
   Container,
   Flex,
   FormControl,
   FormErrorMessage,
   FormLabel,
   Heading,
-  Image,
   Input,
   Link,
   Spacer,
   Stack,
-  Text,
-  useDisclosure,
   useToast,
-  Wrap,
-  WrapItem,
 } from "@chakra-ui/react";
 import * as Yup from "yup";
 import { Link as RouteLink, useNavigate, useParams } from "react-router-dom";
@@ -49,7 +37,7 @@ const EditPlayer = () => {
     if (playerId) {
       PlayerApi.get(playerId).then(res => {
         setPlayerDto(res);
-        console.log(res);
+        // console.log(res);
       })
     }
   }

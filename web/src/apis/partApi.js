@@ -1,11 +1,10 @@
 import { api } from "./axiosconfig"
 import { defineCancelApiObject } from "./axiosUtils"
 
-export const PlayerApi = {
-  get: async function (playerId, cancel = false) {
-    // console.log("Player id: " + playerId);
+export const PartApi = {
+  get: async function (partId, cancel = false) {
     const response = await api.request({
-      url: `/players/` + playerId,
+      url: `/parts/` + partId,
       method: "GET",
       // retrieving the signal value by using the property name
       signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
@@ -15,35 +14,34 @@ export const PlayerApi = {
   },
   getAll: async function (cancel = false) {
     const response = await api.request({
-      url: "/players/",
+      url: "/parts/",
       method: "GET",
       signal: cancel ? cancelApiObject[this.getAll.name].handleRequestCancellation().signal : undefined,
     })
 
     return response.data
   },
-  create: async function (player, cancel = false) {
+  create: async function (part, cancel = false) {
     const response = await api.request({
-      url: `/players`,
+      url: `/parts`,
       method: "POST",
-      data: player,
+      data: part,
       signal: cancel ? cancelApiObject[this.create.name].handleRequestCancellation().signal : undefined,
     })
 
     return response.data
   },
-  update: async function (playerId, player, cancel = false) {
+  update: async function (partId, part, cancel = false) {
     await api.request({
-      url: `/players/` + playerId,
+      url: `/parts/` + partId,
       method: "PUT",
-      data: player,
+      data: part,
       signal: cancel ? cancelApiObject[this.update.name].handleRequestCancellation().signal : undefined,
     })
   },
-  delete: async function (playerId, cancel = false) {
-    // console.log("Player id: " + playerId);
+  delete: async function (partId, cancel = false) {
     const response = await api.request({
-      url: `/players/` + playerId,
+      url: `/parts/` + partId,
       method: "DELETE",
       // retrieving the signal value by using the property name
       signal: cancel ? cancelApiObject[this.delete.name].handleRequestCancellation().signal : undefined,
@@ -54,4 +52,4 @@ export const PlayerApi = {
 }
 
 // defining the cancel API object for ProductAPI
-const cancelApiObject = defineCancelApiObject(PlayerApi)
+const cancelApiObject = defineCancelApiObject(PartApi)

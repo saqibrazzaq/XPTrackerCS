@@ -18,9 +18,16 @@ namespace api.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAll()
         {
             var res = _partService.GetAll();
+            return Ok(res);
+        }
+
+        [HttpGet("{partId}")]
+        public IActionResult Get(Guid partId)
+        {
+            var res = _partService.Get(partId);
             return Ok(res);
         }
 

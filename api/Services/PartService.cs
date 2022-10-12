@@ -3,6 +3,7 @@ using api.Entities;
 using api.Exceptions;
 using api.Repository;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace api.Services
 {
@@ -48,14 +49,29 @@ namespace api.Services
         public PartResponseDto Get(Guid partId)
         {
             var entity = FindPartIfExists(partId, false);
-            return _mapper.Map<PartResponseDto>(entity);
+            var dto = _mapper.Map<PartResponseDto>(entity);
+            dto.AchievementCount = _repositoryManager.AchievementRepository.FindByCondition(
+                x => x.PartId == partId,
+                false)
+                .Count();
+            return dto;
         }
 
         public IEnumerable<PartResponseDto> GetAll()
         {
-            var entities = _repositoryManager.PartRepository.FindAll(false)
+            var entities = _repositoryManager.PartRepository
+                .FindAll(false)
+                .Include(i => i.Achievements)
+                .Select(x => new PartResponseDto
+                {
+                    PartId = x.PartId,
+                    Achievements = x.Achievements,
+                    Name = x.Name,
+                    SortOrder = x.SortOrder,
+                    AchievementCount = x.Achievements == null ? 0 : x.Achievements.Count()
+                })
                 .OrderBy(x => x.SortOrder);
-            return _mapper.Map<IEnumerable<PartResponseDto>>(entities);
+            return entities;
         }
 
         public void Update(Guid partId, PartUpdateDto dto)

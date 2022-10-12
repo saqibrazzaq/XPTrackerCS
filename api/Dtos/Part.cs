@@ -8,7 +8,8 @@ namespace api.Dtos
         public Guid PartId { get; set; }
         public string? Name { get; set; }
         public int SortOrder { get; set; } = 10;
-        public IEnumerable<Achievement>? Achievements { get; set; }
+        public ICollection<Achievement>? Achievements { get; set; }
+        public int AchievementCount { get; set; } = 0;
     }
 
     public class PartCreateDto : PartManipulate

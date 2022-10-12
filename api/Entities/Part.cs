@@ -15,6 +15,6 @@ namespace api.Entities
         public int SortOrder { get; set; } = 10;
 
         // Child tables
-        public IEnumerable<Achievement>? Achievements { get; set; }
+        public ICollection<Achievement>? Achievements { get; set; }
     }
 }

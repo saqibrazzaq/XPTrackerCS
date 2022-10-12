@@ -18,6 +18,11 @@ import Players from "./players/Players";
 import Parts from "./parts/Parts";
 import Achievements from "./achievements/Achievements";
 import EditPlayer from "./players/EditPlayer";
+import DeletePlayer from "./players/DeletePlayer";
+import EditPart from "./parts/EditPart";
+import EditAchievement from "./achievements/EditAchievement";
+import DeletePart from "./parts/DeletePart";
+import DeleteAchievement from "./achievements/DeleteAchievement";
 
 export const App = () => (
   <BrowserRouter>
@@ -28,12 +33,19 @@ export const App = () => (
           <Route index element={<Players />} />
           <Route path="update" element={<EditPlayer />} />
           <Route path="update/:playerId" element={<EditPlayer />} />
+          <Route path="delete/:playerId" element={<DeletePlayer />} />
         </Route>
         <Route path="parts">
           <Route index element={<Parts />} />
+          <Route path="update" element={<EditPart />} />
+          <Route path="update/:partId" element={<EditPart />} />
+          <Route path="delete/:partId" element={<DeletePart />} />
         </Route>
-        <Route path="achievements">
+        <Route path="achievements/:partId">
           <Route index element={<Achievements />} />
+          <Route path="update" element={<EditAchievement />} />
+          <Route path="update/:achievementId" element={<EditAchievement />} />
+          <Route path="delete/:achievementId" element={<DeleteAchievement />} />
         </Route>
       </Route>
     </Routes>
