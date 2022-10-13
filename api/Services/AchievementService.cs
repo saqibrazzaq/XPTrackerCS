@@ -3,6 +3,7 @@ using api.Entities;
 using api.Exceptions;
 using api.Repository;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace api.Services
 {
@@ -36,7 +37,8 @@ namespace api.Services
         {
             var entity = _repositoryManager.AchievementRepository.FindByCondition(
                 x => x.AchievementId == achievementId,
-                trackChanges)
+                trackChanges,
+                include: i => i.Include(x => x.Part))
                 .FirstOrDefault();
             if (entity == null) throw new NotFoundException("No achievement found with id " + achievementId);
 

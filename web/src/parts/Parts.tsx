@@ -5,6 +5,7 @@ import { Link as RouteLink, useParams } from "react-router-dom";
 import UpdateIconButton from "../components/UpdateIconButton";
 import DeleteIconButton from "../components/DeleteIconButton";
 import { PartApi } from "../apis/partApi";
+import ViewIconButton from "../components/ViewIconButton";
 
 const Parts = () => {
   const [parts, setParts] = useState<PartResponseDto[]>([]);
@@ -22,7 +23,7 @@ const Parts = () => {
   const showHeading = () => (
     <Flex>
       <Box>
-        <Heading fontSize={"xl"}>Part List</Heading>
+        <Heading fontSize={"xl"}>Parts</Heading>
       </Box>
       <Spacer />
       <Box>
@@ -61,6 +62,13 @@ const Parts = () => {
                   {item.sortOrder}
                 </Td>
                 <Td>
+                <Link
+                    mr={2}
+                    as={RouteLink}
+                    to={"/achievements/" + item.partId}
+                  >
+                    <ViewIconButton />
+                  </Link>
                   <Link
                     mr={2}
                     as={RouteLink}
