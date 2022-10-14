@@ -23,6 +23,9 @@ import EditPart from "./parts/EditPart";
 import EditAchievement from "./achievements/EditAchievement";
 import DeletePart from "./parts/DeletePart";
 import DeleteAchievement from "./achievements/DeleteAchievement";
+import Levels from "./levels/Levels";
+import EditLevel from "./levels/EditLevel";
+import DeleteLevel from "./levels/DeleteLevel";
 
 export const App = () => (
   <BrowserRouter>
@@ -34,6 +37,12 @@ export const App = () => (
           <Route path="update" element={<EditPlayer />} />
           <Route path="update/:playerId" element={<EditPlayer />} />
           <Route path="delete/:playerId" element={<DeletePlayer />} />
+        </Route>
+        <Route path="levels">
+          <Route index element={<Levels />} />
+          <Route path="update" element={<EditLevel />} />
+          <Route path="update/:levelId" element={<EditLevel />} />
+          <Route path="delete/:levelId" element={<DeleteLevel />} />
         </Route>
         <Route path="parts">
           <Route index element={<Parts />} />

@@ -74,6 +74,10 @@ const TopNavbar = () => {
         name: "Achievements",
         href: "parts",
       },
+      {
+        name: "Levels",
+        href: "levels",
+      },
     ];
     setNavItems(NAV_ITEMS);
   };
