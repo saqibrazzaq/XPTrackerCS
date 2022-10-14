@@ -14,6 +14,14 @@ namespace api.Dtos
         public bool IsComplete { get; set; }
     }
 
+    public class PlayerAchievementMarkCompleteDto
+    {
+        [Required]
+        public bool IsComplete { get; set; } = false;
+        [Required]
+        public int Xp { get; set; } = 0;
+    }
+
     public class PlayerAchievementCreateDto : PlayerAchievementManipulate
     {
 

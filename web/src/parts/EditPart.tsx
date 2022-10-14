@@ -65,6 +65,7 @@ const EditPart = () => {
         position: "top-right",
       });
     });
+    navigate("/parts")
   };
 
   const createPart = (values: PartUpdateDto) => {
@@ -75,7 +76,8 @@ const EditPart = () => {
         status: "success",
         position: "top-right",
       });
-      navigate("/parts/update/" + res.partId)
+      // navigate("/parts/update/" + res.partId)
+      navigate("/parts")
     });
   }
 

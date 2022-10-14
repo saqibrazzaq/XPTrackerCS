@@ -20,3 +20,4 @@ export class AchievementUpdateDto {
   xp?: number = 25;
   partId?: string = "";
 }
+

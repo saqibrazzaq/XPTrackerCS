@@ -69,10 +69,11 @@ namespace api.Controllers
             return Ok(res);
         }
 
-        [HttpGet("complete-achievement/{playerAchievementId}/{isComplete}")]
-        public IActionResult CompleteAchievement(Guid playerAchievementId, bool isComplete)
+        [HttpPost("complete-achievement/{playerAchievementId}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public IActionResult CompleteAchievement(Guid playerAchievementId, PlayerAchievementMarkCompleteDto dto)
         {
-            var res = _playerService.CompleteAchievement(playerAchievementId, isComplete);
+            var res = _playerService.CompleteAchievement(playerAchievementId, dto);
             return Ok(res);
         }
     }

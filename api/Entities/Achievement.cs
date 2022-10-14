@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace api.Entities
 {
     [Table("Achievement")]
-    [Index(nameof(Page), IsUnique = true)]
+    [Index(nameof(Page), IsUnique = false)]
     [Index(nameof(Name), IsUnique = true)]
     public class Achievement
     {

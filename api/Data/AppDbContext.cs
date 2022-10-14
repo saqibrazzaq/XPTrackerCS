@@ -16,5 +16,6 @@ namespace api.Data
         public DbSet<Achievement>? Achievements { get; set; }
         public DbSet<Player>? Players { get; set; }
         public DbSet<PlayerAchievement>? PlayerAchievements { get; set; }
+        public DbSet<Level>? Levels { get; set; }
     }
 }

@@ -62,11 +62,12 @@ export const PlayerApi = {
 
     return response.data
   },
-  completeAchievement: async function (playerAchievementId, isComplete, cancel = false) {
+  completeAchievement: async function (playerAchievementId, achievementData, cancel = false) {
     // console.log("Player id: " + playerId);
     const response = await api.request({
-      url: `/players/complete-achievement/` + playerAchievementId + `/` + isComplete,
-      method: "GET",
+      url: `/players/complete-achievement/` + playerAchievementId,
+      method: "POST",
+      data: achievementData,
       // retrieving the signal value by using the property name
       signal: cancel ? cancelApiObject[this.completeAchievement.name].handleRequestCancellation().signal : undefined,
     })

@@ -18,7 +18,12 @@ export interface PlayerAchievementResponseDto {
   isComplete?: boolean;
 }
 
-export interface PlayerAchievementMarkCompleteDto {
-  playerAchievementId?: string;
+export class PlayerAchievementMarkCompleteDto {
+  constructor(isComplete?: boolean, xp?: number) {
+    this.isComplete = isComplete;
+    this.xp = xp;
+  }
+  
   isComplete?: boolean;
+  xp?: number;
 }

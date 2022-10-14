@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { PlayerApi } from "../apis/playerApi";
-import { PlayerAchievementResponseDto } from "../dtos/Player";
+import { PlayerAchievementMarkCompleteDto, PlayerAchievementResponseDto } from "../dtos/Player";
 
 interface AchievementDetailProps {
   playerId?: string;
@@ -37,8 +37,9 @@ const AchievementDetail: React.FC<AchievementDetailProps> = ({
     });
   };
 
-  const updateAchievement = (playerAchievementId?: string, isComplete?: boolean) => {
-    PlayerApi.completeAchievement(playerAchievementId, !isComplete)
+  const updateAchievement = (playerAchievementId?: string, isComplete?: boolean, xp?: number) => {
+    const dto = new PlayerAchievementMarkCompleteDto(!isComplete, xp);
+    PlayerApi.completeAchievement(playerAchievementId, dto)
       .then((res) => {
         loadPlayerAchievements();
         toast({
@@ -77,7 +78,7 @@ const AchievementDetail: React.FC<AchievementDetailProps> = ({
                 <Checkbox
                   isChecked={item.isComplete}
                   onChange={(e) => {
-                    updateAchievement(item.playerAchievementId, item.isComplete);
+                    updateAchievement(item.playerAchievementId, item.isComplete, item.achievement?.xp);
                   }}
                 ></Checkbox>
               </Td>

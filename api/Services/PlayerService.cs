@@ -33,7 +33,7 @@ namespace api.Services
             _repositoryManager.Save();
         }
 
-        private Player FindPlayerIfExists(Guid playerId, bool trackChanges)
+        private Player FindPlayerIfExists(Guid? playerId, bool trackChanges)
         {
             var entity = _repositoryManager.PlayerRepository.FindByCondition(
                 x => x.PlayerId == playerId,
@@ -128,17 +128,23 @@ namespace api.Services
             return dtos;
         }
 
-        public bool CompleteAchievement(Guid playerAchievementId, bool isComplete)
+        public bool CompleteAchievement(Guid playerAchievementId, PlayerAchievementMarkCompleteDto dto)
         {
             try
             {
-                var entity = _repositoryManager.PlayerAchievementRepository.FindByCondition(
-                x => x.PlayerAchievementId == playerAchievementId,
-                true)
-                .FirstOrDefault();
-                if (entity == null) throw new NotFoundException("No achievement found with id " + playerAchievementId);
+                var achievementEntity = _repositoryManager.PlayerAchievementRepository.FindByCondition(
+                    x => x.PlayerAchievementId == playerAchievementId,
+                    true)
+                    .FirstOrDefault();
+                if (achievementEntity == null) throw new NotFoundException("No achievement found with id " + playerAchievementId);
 
-                entity.IsComplete = isComplete;
+                achievementEntity.IsComplete = dto.IsComplete;
+
+                var player = FindPlayerIfExists(achievementEntity.PlayerId, true);
+                player.Experience = dto.IsComplete 
+                    ? player.Experience + dto.Xp 
+                    : player.Experience - dto.Xp;
+                if (player.Experience <= 0) player.Experience = 0;
                 _repositoryManager.Save();
                 return true;
             }

@@ -85,6 +85,7 @@ const EditAchievement = () => {
         position: "top-right",
       });
     });
+    navigate("/achievements/" + partId)
   };
 
   const createPart = (values: AchievementUpdateDto) => {
@@ -95,7 +96,8 @@ const EditAchievement = () => {
         status: "success",
         position: "top-right",
       });
-      navigate("/achievements/" + partId + "/update/" + res.achievementId)
+      // navigate("/achievements/" + partId + "/update/" + res.achievementId)
+      navigate("/achievements/" + partId)
     });
   }
 

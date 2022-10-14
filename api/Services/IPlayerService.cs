@@ -12,6 +12,6 @@ namespace api.Services
         IEnumerable<PlayerAchievementResponseDto> GetAchievements(
             Guid playerId, Guid partId);
         void UpdateAchievements(Guid playerId);
-        bool CompleteAchievement(Guid playerAchievementId, bool isComplete);
+        bool CompleteAchievement(Guid playerAchievementId, PlayerAchievementMarkCompleteDto dto);
     }
 }
