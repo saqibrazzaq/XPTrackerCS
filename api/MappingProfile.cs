@@ -27,6 +27,11 @@ namespace api
             CreateMap<PlayerAchievementCreateDto, PlayerAchievement>();
             CreateMap<PlayerAchievementUpdateDto, PlayerAchievement>();
             CreateMap<PlayerAchievement, PlayerAchievementResponseDto>();
+
+            // Level
+            CreateMap<LevelCreateDto, Level>();
+            CreateMap<LevelUpdateDto, Level>();
+            CreateMap<Level, LevelResponseDto>();
         }
     }
 }

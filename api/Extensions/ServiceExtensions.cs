@@ -57,6 +57,7 @@ namespace api.Extensions
             services.AddScoped<IPartService, PartService>();
             services.AddScoped<IAchievementService, AchievementService>();
             services.AddScoped<IPlayerService, PlayerService>();
+            services.AddScoped<ILevelService, LevelService>();
         }
     }
 }

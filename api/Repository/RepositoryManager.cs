@@ -10,6 +10,7 @@ namespace api.Repository
         private readonly Lazy<IAchievementRepository> _achievementRepository;
         private readonly Lazy<IPlayerRepository> _playerRepository;
         private readonly Lazy<IPlayerAchievementRepository> _playerAchievementRepository;
+        private readonly Lazy<ILevelRepository> _levelRepository;
         public RepositoryManager(AppDbContext context)
         {
             _context = context;
@@ -22,6 +23,8 @@ namespace api.Repository
                 new PlayerRepository(context));
             _playerAchievementRepository = new Lazy<IPlayerAchievementRepository>(() =>
                 new PlayerAchievementRepository(context));
+            _levelRepository = new Lazy<ILevelRepository>(() =>
+                new LevelRepository(context));
         }
 
         public IPartRepository PartRepository => _partRepository.Value;
@@ -31,6 +34,8 @@ namespace api.Repository
         public IPlayerRepository PlayerRepository => _playerRepository.Value;
 
         public IPlayerAchievementRepository PlayerAchievementRepository => _playerAchievementRepository.Value;
+
+        public ILevelRepository LevelRepository => _levelRepository.Value;
 
         public void Save()
         {
