@@ -3,10 +3,12 @@ import { Link as RouteLink, useNavigate, useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { PlayerResponseDto } from '../dtos/Player';
 import { PlayerApi } from '../apis/playerApi';
+import AchievementTabs from './AchievementTabs';
 
 const Home = () => {
 
   const [players, setPlayers] = useState<PlayerResponseDto[]>([]);
+  const [selectedPlayerId, setSelectedPlayerId] = useState<string>();
 
   useEffect(() => {
     loadPlayers();
@@ -23,9 +25,12 @@ const Home = () => {
   )
 
   const showPlayerDropdown = () => (
-    <Select placeholder='Select player ...'>
+    <Select placeholder='Select player ...' onChange={(e) => {
+      // console.log("Player id: " + e.target.value)
+      setSelectedPlayerId(e.target.value);
+    }}>
       {players.map(item => (
-        <option key={item.playerId} value={item.playerId}>{item.name}</option>
+        <option key={item.playerId} value={item.playerId} >{item.name}</option>
       ))}
     </Select>
   )
@@ -34,6 +39,7 @@ const Home = () => {
       <Stack spacing={4} as={Container} maxW={"max"}>
         {showHeading()}
         {showPlayerDropdown()}
+        <AchievementTabs playerId={selectedPlayerId} />
       </Stack>
     </Box>
   )

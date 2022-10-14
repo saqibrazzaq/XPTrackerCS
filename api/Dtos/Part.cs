@@ -1,5 +1,4 @@
-﻿using api.Entities;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace api.Dtos
 {
@@ -8,7 +7,7 @@ namespace api.Dtos
         public Guid PartId { get; set; }
         public string? Name { get; set; }
         public int SortOrder { get; set; } = 10;
-        public ICollection<Achievement>? Achievements { get; set; }
+        public ICollection<AchievementResponseDto>? Achievements { get; set; }
         public int AchievementCount { get; set; } = 0;
     }
 

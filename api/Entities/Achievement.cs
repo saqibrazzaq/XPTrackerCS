@@ -20,5 +20,8 @@ namespace api.Entities
         [Required, ForeignKey("PartId")]
         public Guid? PartId { get; set; }
         public Part? Part { get; set; }
+
+        // Child tables
+        public IEnumerable<PlayerAchievement>? PlayerAchievements { get; set; }
     }
 }

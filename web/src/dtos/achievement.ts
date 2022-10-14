@@ -1,4 +1,5 @@
 import { PartResponseDto } from "./part";
+import { PlayerAchievementResponseDto } from "./Player";
 
 export interface AchievementResponseDto {
   achievementId?: string;
@@ -7,6 +8,7 @@ export interface AchievementResponseDto {
   xp?: number;
   partId?: string;
   part?: PartResponseDto;
+  playerAchievements?: PlayerAchievementResponseDto[];
 }
 
 export class AchievementUpdateDto {

@@ -51,6 +51,28 @@ export const PlayerApi = {
 
     return response.data
   },
+  getAchievements: async function (playerId, partId, cancel = false) {
+    // console.log("Player id: " + playerId);
+    const response = await api.request({
+      url: `/players/achievements/` + playerId + `/` + partId,
+      method: "GET",
+      // retrieving the signal value by using the property name
+      signal: cancel ? cancelApiObject[this.getAchievements.name].handleRequestCancellation().signal : undefined,
+    })
+
+    return response.data
+  },
+  completeAchievement: async function (playerAchievementId, isComplete, cancel = false) {
+    // console.log("Player id: " + playerId);
+    const response = await api.request({
+      url: `/players/complete-achievement/` + playerAchievementId + `/` + isComplete,
+      method: "GET",
+      // retrieving the signal value by using the property name
+      signal: cancel ? cancelApiObject[this.completeAchievement.name].handleRequestCancellation().signal : undefined,
+    })
+
+    return response.data
+  },
 }
 
 // defining the cancel API object for ProductAPI

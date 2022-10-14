@@ -3,6 +3,7 @@ using api.Entities;
 using api.Exceptions;
 using api.Repository;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace api.Services
 {
@@ -114,13 +115,37 @@ namespace api.Services
             _repositoryManager.Save();
         }
 
-        public IEnumerable<PlayerAchievementResponseDto> GetAchievements(Guid playerId)
+        public IEnumerable<PlayerAchievementResponseDto> GetAchievements(Guid playerId,
+            Guid partId)
         {
             var entities = _repositoryManager.PlayerAchievementRepository.FindByCondition(
-                x => x.PlayerId == playerId,
-                false);
+                x => x.PlayerId == playerId && x.Achievement.PartId == partId,
+                false,
+                include: i => i
+                    .Include(x => x.Achievement))
+                .OrderBy(x => x.Achievement.Page);
             var dtos = _mapper.Map<IEnumerable<PlayerAchievementResponseDto>>(entities);
             return dtos;
+        }
+
+        public bool CompleteAchievement(Guid playerAchievementId, bool isComplete)
+        {
+            try
+            {
+                var entity = _repositoryManager.PlayerAchievementRepository.FindByCondition(
+                x => x.PlayerAchievementId == playerAchievementId,
+                true)
+                .FirstOrDefault();
+                if (entity == null) throw new NotFoundException("No achievement found with id " + playerAchievementId);
+
+                entity.IsComplete = isComplete;
+                _repositoryManager.Save();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

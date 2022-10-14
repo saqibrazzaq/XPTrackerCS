@@ -65,7 +65,7 @@ namespace api.Services
                 .Select(x => new PartResponseDto
                 {
                     PartId = x.PartId,
-                    Achievements = x.Achievements,
+                    Achievements = _mapper.Map<ICollection<AchievementResponseDto>>(x.Achievements),
                     Name = x.Name,
                     SortOrder = x.SortOrder,
                     AchievementCount = x.Achievements == null ? 0 : x.Achievements.Count()

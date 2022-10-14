@@ -61,10 +61,18 @@ namespace api.Controllers
             return NoContent();
         }
 
-        [HttpGet("achievements/{playerId}")]
-        public IActionResult GetAchievements(Guid playerId)
+        [HttpGet("achievements/{playerId}/{partId}")]
+        public IActionResult GetAchievements(Guid playerId, Guid partId)
         {
-            var res = _playerService.GetAchievements(playerId);
+            _playerService.UpdateAchievements(playerId);
+            var res = _playerService.GetAchievements(playerId, partId);
+            return Ok(res);
+        }
+
+        [HttpGet("complete-achievement/{playerAchievementId}/{isComplete}")]
+        public IActionResult CompleteAchievement(Guid playerAchievementId, bool isComplete)
+        {
+            var res = _playerService.CompleteAchievement(playerAchievementId, isComplete);
             return Ok(res);
         }
     }
