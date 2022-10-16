@@ -32,6 +32,13 @@ namespace api.Controllers
             return Ok(res);
         }
 
+        [HttpGet("experience/{experience}")]
+        public IActionResult FindByExperience(int experience)
+        {
+            var res = _levelService.FindByExperience(experience);
+            return Ok(res);
+        }
+
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public IActionResult Create(LevelCreateDto dto)

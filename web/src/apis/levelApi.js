@@ -12,6 +12,16 @@ export const LevelApi = {
 
     return response.data
   },
+  findByExperience: async function (experience, cancel = false) {
+    const response = await api.request({
+      url: `/levels/experience/` + experience,
+      method: "GET",
+      // retrieving the signal value by using the property name
+      signal: cancel ? cancelApiObject[this.findByExperience.name].handleRequestCancellation().signal : undefined,
+    })
+
+    return response.data
+  },
   getAll: async function (cancel = false) {
     const response = await api.request({
       url: "/levels/",

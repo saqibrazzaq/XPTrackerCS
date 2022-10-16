@@ -17,17 +17,18 @@ import React, { useEffect, useState } from "react";
 import { Link as RouteLink, useParams } from "react-router-dom";
 import { PartApi } from "../apis/partApi";
 import { PartResponseDto } from "../dtos/part";
+import { PlayerResponseDto } from "../dtos/Player";
 import AchievementDetail from "./AchievementDetail";
 
 interface AchievementTabProps {
-  playerId?: string;
+  player?: PlayerResponseDto;
 }
 
-const AchievementTabs: React.FC<AchievementTabProps> = ({ playerId }) => {
+const AchievementTabs: React.FC<AchievementTabProps> = ({ player }) => {
   const [parts, setParts] = useState<PartResponseDto[]>([]);
   useEffect(() => {
-    playerId && loadParts();
-  }, [playerId]);
+    player?.playerId && loadParts();
+  }, [player?.playerId]);
 
   const loadParts = () => {
     PartApi.getAll().then((res) => setParts(res));
@@ -44,7 +45,7 @@ const AchievementTabs: React.FC<AchievementTabProps> = ({ playerId }) => {
       <TabPanels>
         {parts.map((item) => (
           <TabPanel key={item.partId}>
-            <AchievementDetail playerId={playerId} partId={item.partId} />
+            <AchievementDetail player={player} partId={item.partId} />
           </TabPanel>
         ))}
       </TabPanels>
@@ -54,7 +55,7 @@ const AchievementTabs: React.FC<AchievementTabProps> = ({ playerId }) => {
   return (
     <Box p={4}>
       <Stack spacing={4} as={Container} maxW={"max"}>
-        {playerId && showAchievements()}
+        {player?.playerId && showAchievements()}
       </Stack>
     </Box>
   );

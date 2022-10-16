@@ -1,6 +1,6 @@
 import { AchievementResponseDto } from "./achievement";
 
-export interface PlayerResponseDto {
+export class PlayerResponseDto {
   playerId?: string;
   name?: string;
   experience?: number;

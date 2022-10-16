@@ -10,29 +10,31 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
+import { useNavigate, redirect } from "react-router-dom";
 import { PlayerApi } from "../apis/playerApi";
-import { PlayerAchievementMarkCompleteDto, PlayerAchievementResponseDto } from "../dtos/Player";
+import { PlayerAchievementMarkCompleteDto, PlayerAchievementResponseDto, PlayerResponseDto } from "../dtos/Player";
 
 interface AchievementDetailProps {
-  playerId?: string;
+  player?: PlayerResponseDto;
   partId?: string;
 }
 
 const AchievementDetail: React.FC<AchievementDetailProps> = ({
-  playerId,
+  player,
   partId,
 }) => {
   const toast = useToast();
+  const navigate = useNavigate();
   const [playerAchievements, setPlayerAchievements] = useState<
     PlayerAchievementResponseDto[]
   >([]);
 
   useEffect(() => {
     loadPlayerAchievements();
-  }, [playerId, partId]);
+  }, [player?.playerId, partId]);
 
   const loadPlayerAchievements = () => {
-    PlayerApi.getAchievements(playerId, partId).then((res) => {
+    PlayerApi.getAchievements(player?.playerId, partId).then((res) => {
       setPlayerAchievements(res);
     });
   };
@@ -42,6 +44,7 @@ const AchievementDetail: React.FC<AchievementDetailProps> = ({
     PlayerApi.completeAchievement(playerAchievementId, dto)
       .then((res) => {
         loadPlayerAchievements();
+        navigate("/", {replace: true})
         toast({
           title: "Success",
           description: "Achievement updated successfully.",

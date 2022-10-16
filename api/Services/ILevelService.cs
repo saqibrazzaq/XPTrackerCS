@@ -9,5 +9,6 @@ namespace api.Services
         void Delete(Guid levelId);
         IEnumerable<LevelResponseDto> GetAll();
         LevelResponseDto Get(Guid levelId);
+        LevelResponseDto FindByExperience(int exp);
     }
 }

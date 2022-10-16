@@ -61,5 +61,15 @@ namespace api.Services
             _mapper.Map(dto, entity);
             _repositoryManager.Save();
         }
+
+        public LevelResponseDto FindByExperience(int exp)
+        {
+            var entity = _repositoryManager.LevelRepository.FindByCondition(
+                x => exp >= x.MinExp && exp <= x.MaxExp,
+                false)
+                .FirstOrDefault();
+            if (entity == null) throw new NotFoundException("No level found");
+            return _mapper.Map<LevelResponseDto>(entity);
+        }
     }
 }
