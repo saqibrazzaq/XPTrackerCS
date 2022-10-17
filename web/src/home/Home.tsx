@@ -36,9 +36,9 @@ const Home = () => {
   }, [level]);
   
   useEffect(() => {
-    loadLevel();
-    loadParts();
-  }, [selectedPlayer]);
+      loadLevel();
+      loadParts();
+  }, [selectedPlayer?.playerId, selectedPlayer?.experience]);
 
   useEffect(() => {
     loadPlayerAchievements(parts[tabIndex]?.partId);
@@ -49,13 +49,19 @@ const Home = () => {
   };
 
   const loadPlayerAchievements = (partId?: string) => {
-    PlayerApi.getAchievements(selectedPlayer?.playerId, partId).then((res) => {
-      setPlayerAchievements(res);
-    });
+    if (selectedPlayer?.playerId) {
+      PlayerApi.getAchievements(selectedPlayer?.playerId, partId).then((res) => {
+        loadSelectedPlayer(selectedPlayer?.playerId);
+        setPlayerAchievements(res);
+      });
+    }
+    
   };
 
   const loadSelectedPlayer = (playerId?: string) => {
-    PlayerApi.get(playerId).then(res => setSelectedPlayer(res));
+    PlayerApi.get(playerId).then(res => {
+      setSelectedPlayer(res);
+    });
   }
 
   const loadPlayers = () => {
@@ -65,7 +71,10 @@ const Home = () => {
   }
 
   const loadLevel = () => {
-    LevelApi.findByExperience(selectedPlayer?.experience).then((res) => setLevel(res));
+    LevelApi.findByExperience(selectedPlayer?.experience).then((res) => {
+      setLevel(res);
+    });
+    
   };
   
   const showHeading = () => (
@@ -75,7 +84,7 @@ const Home = () => {
   const showPlayerDropdown = () => (
     <Select width={"300px"} placeholder='Select player ...' onChange={(e) => {
       let index = e.target.selectedIndex - 1;
-      setSelectedPlayer(players.at(index))
+      loadSelectedPlayer(e.target.value);
       if (index < 0) setSelectedPlayer(new PlayerResponseDto());
     }}>
       {players.map(item => (
@@ -89,7 +98,6 @@ const Home = () => {
     PlayerApi.completeAchievement(playerAchievementId, dto)
       .then((res) => {
         loadPlayerAchievements(partId);
-        loadSelectedPlayer(selectedPlayer?.playerId);
         //navigate("/", {replace: true})
         toast({
           title: "Success",
@@ -160,7 +168,6 @@ const Home = () => {
                   isChecked={item.isComplete}
                   onChange={(e) => {
                     updateAchievement(item.playerAchievementId, item.isComplete, item.achievement?.xp, partId);
-                    loadSelectedPlayer(selectedPlayer?.playerId);
                   }}
                 ></Checkbox>
               </Td>
