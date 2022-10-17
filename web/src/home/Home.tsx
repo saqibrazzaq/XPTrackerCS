@@ -100,7 +100,7 @@ const Home = () => {
         loadPlayerAchievements(partId);
         //navigate("/", {replace: true})
         toast({
-          title: "Success",
+          //title: "Success",
           description: "Achievement updated successfully.",
           status: "success",
           position: "top-right",

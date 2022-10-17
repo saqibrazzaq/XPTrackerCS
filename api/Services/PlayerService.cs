@@ -70,6 +70,23 @@ namespace api.Services
         {
             RemovePreviouslyDeletedAchievements(playerId);
             AddNewlyAddedAchievements(playerId);
+            UpdatePlayerExperience(playerId);
+        }
+
+        private void UpdatePlayerExperience(Guid playerId)
+        {
+            var experience = _repositoryManager.PlayerAchievementRepository.FindByCondition(
+                x => x.PlayerId == playerId && x.IsComplete == true,
+                false,
+                include: i => i.Include(x => x.Achievement))
+                .Sum(x => x.Achievement.Xp);
+            var player = _repositoryManager.PlayerRepository.FindByCondition(
+                x => x.PlayerId == playerId,
+                true)
+                .FirstOrDefault();
+            if (player == null) throw new NotFoundException("No player found with id " + playerId);
+            player.Experience = experience;
+            _repositoryManager.Save();
         }
 
         private void AddNewlyAddedAchievements(Guid playerId)
