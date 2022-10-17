@@ -11,6 +11,7 @@ builder.Services.ConfigureAutoMapper();
 builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureValidationFilter();
 builder.Services.ConfigureServices();
+builder.Services.MigrateDatabase();
 
 builder.Services.AddControllers(config =>
 {

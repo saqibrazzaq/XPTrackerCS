@@ -59,5 +59,12 @@ namespace api.Extensions
             services.AddScoped<IPlayerService, PlayerService>();
             services.AddScoped<ILevelService, LevelService>();
         }
+
+        public static void MigrateDatabase(this IServiceCollection services)
+        {
+            var dbContext = services.BuildServiceProvider().GetRequiredService<AppDbContext>();
+            dbContext.Database.Migrate();
+
+        }
     }
 }

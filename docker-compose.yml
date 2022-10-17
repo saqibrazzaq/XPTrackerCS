@@ -9,5 +9,13 @@ services:
     depends_on:
       - db
 
+  web:
+    build: ./web
+    container_name: web
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    tty: true
+
   db:
     image: mcr.microsoft.com/mssql/server:2017-latest
