@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  api:
+    image: ${DOCKER_REGISTRY-}api
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    depends_on:
+      - db
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2017-latest
