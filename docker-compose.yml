@@ -2,7 +2,8 @@ version: '3.4'
 
 services:
   api:
-    image: ${DOCKER_REGISTRY-}api
+    image: saqibrazzaq/xptrackercs_api
+    container_name: xptrackercs_api
     build:
       context: .
       dockerfile: api/Dockerfile
@@ -10,12 +11,15 @@ services:
       - db
 
   web:
+    container_name: xptrackercs_web
     build: ./web
-    container_name: web
     ports:
       - '3000:3000'
     stdin_open: true
     tty: true
+    depends_on:
+      - api
 
   db:
     image: mcr.microsoft.com/mssql/server:2017-latest
+    container_name: xptrackercs_db

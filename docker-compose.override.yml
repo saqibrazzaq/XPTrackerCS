@@ -15,7 +15,6 @@ services:
   db:
     volumes:
       - db_data:/var/opt/mssql/data
-    container_name: db
     environment:
       SA_PASSWORD: "Saqib123!"
       ACCEPT_EULA: "Y"
