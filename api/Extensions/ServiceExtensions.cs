@@ -17,7 +17,10 @@ namespace api.Extensions
                 {
                     builder
                     //.AllowAnyOrigin()
-                    .WithOrigins("https://localhost:3000")
+                    .WithOrigins(
+                        "https://localhost:3000",
+                        "http://localhost:3000",
+                        "http://192.168.18.100:3000")
                     .AllowCredentials()
                     .AllowAnyMethod()
                     .AllowAnyHeader();

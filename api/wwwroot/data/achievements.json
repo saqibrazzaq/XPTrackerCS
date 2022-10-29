@@ -1,0 +1,835 @@
+[
+  {
+    "Name": "Part 1: The Basics",
+    "SortOrder": 1,
+    "Achievements": [
+      {
+        "Name": "Knowledge Check - C#",
+        "Page": 10,
+        "Xp": 25,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "Hello, World!",
+        "Page": 19,
+        "Xp": 50,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "Install Visual Studio",
+        "Page": 14,
+        "Xp": 75,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "What Comes Next",
+        "Page": 24,
+        "Xp": 50,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "The Makings of a Programmer",
+        "Page": 25,
+        "Xp": 50,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "Consolas and Telim",
+        "Page": 26,
+        "Xp": 50,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "The Thing Namer 3000",
+        "Page": 31,
+        "Xp": 100,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "Knowledge Check - Variables",
+        "Page": 37,
+        "Xp": 25,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "The Variable Shop",
+        "Page": 45,
+        "Xp": 100,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "The Variable Shop Returns",
+        "Page": 46,
+        "Xp": 50,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "Knowledge Check - Type System",
+        "Page": 48,
+        "Xp": 25,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "The Triangle Farmer",
+        "Page": 53,
+        "Xp": 100,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "The Four Sisters and the Duckbear",
+        "Page": 56,
+        "Xp": 100,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "The Dominion of Kings",
+        "Page": 57,
+        "Xp": 100,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "The Defense of Consolas",
+        "Page": 68,
+        "Xp": 200,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "Repairing the Clocktower",
+        "Page": 75,
+        "Xp": 100,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "Watchtower",
+        "Page": 78,
+        "Xp": 100,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "Buying Inventory",
+        "Page": 82,
+        "Xp": 100,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "Discounted Inventory",
+        "Page": 83,
+        "Xp": 50,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "The Prototype",
+        "Page": 88,
+        "Xp": 100,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "The Magic Cannon",
+        "Page": 89,
+        "Xp": 100,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "The Replicator of D’To",
+        "Page": 94,
+        "Xp": 100,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "The Laws of Freach",
+        "Page": 95,
+        "Xp": 50,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "Taking a Number",
+        "Page": 106,
+        "Xp": 100,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "Countdown",
+        "Page": 107,
+        "Xp": 100,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "Knowledge Check - Memory",
+        "Page": 123,
+        "Xp": 25,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      },
+      {
+        "Name": "Hunting the Manticore",
+        "Page": 124,
+        "Xp": 250,
+        "PartId": "8a21d3c8-e708-4284-4dca-08daaa20dc36",
+        "part": null
+      }
+    ],
+    "achievementCount": 27
+  },
+  {
+    "Name": "Part 2: Object-Oriented Programming",
+    "SortOrder": 2,
+    "Achievements": [
+      {
+        "Name": "Knowledge Check - Objects",
+        "Page": 131,
+        "Xp": 25,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Simula’s Test",
+        "Page": 135,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Simula’s Soups",
+        "Page": 143,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Vin Fletcher’s Arrows",
+        "Page": 153,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Vin’s Trouble",
+        "Page": 162,
+        "Xp": 50,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "The Properties of Arrows",
+        "Page": 168,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Arrow Factories",
+        "Page": 173,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "The Point",
+        "Page": 191,
+        "Xp": 75,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "The Color",
+        "Page": 191,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "The Card",
+        "Page": 191,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "The Locked Door",
+        "Page": 192,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "The Password Validator",
+        "Page": 192,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Rock-Paper-Scissors",
+        "Page": 193,
+        "Xp": 150,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "15-Puzzle",
+        "Page": 194,
+        "Xp": 150,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Hangman",
+        "Page": 194,
+        "Xp": 150,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Tic-Tac-Toe",
+        "Page": 195,
+        "Xp": 300,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Packing Inventory",
+        "Page": 205,
+        "Xp": 150,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Labeling Inventory",
+        "Page": 209,
+        "Xp": 50,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "The Old Robot",
+        "Page": 210,
+        "Xp": 200,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Robotic Interface",
+        "Page": 217,
+        "Xp": 75,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Room Coordinates",
+        "Page": 225,
+        "Xp": 50,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "War Preparations",
+        "Page": 231,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Colored Items",
+        "Page": 240,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "The Fountain of Objects",
+        "Page": 242,
+        "Xp": 500,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Small, Medium, or Large",
+        "Page": 244,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Pits",
+        "Page": 244,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Maelstroms",
+        "Page": 244,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Amaroks",
+        "Page": 245,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Getting Armed",
+        "Page": 245,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Getting Help",
+        "Page": 246,
+        "Xp": 100,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "The Robot Pilot",
+        "Page": 249,
+        "Xp": 50,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Time in the Cavern",
+        "Page": 251,
+        "Xp": 50,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      },
+      {
+        "Name": "Lists of Commands",
+        "Page": 255,
+        "Xp": 75,
+        "PartId": "36cd7716-06a5-44a2-a134-08daacdea8f8",
+        "part": null
+      }
+    ],
+    "achievementCount": 33
+  },
+  {
+    "Name": "Part 3: Advanced Features",
+    "SortOrder": 3,
+    "Achievements": [
+      {
+        "Name": "Knowledge Check - Large Programs",
+        "Page": 269,
+        "Xp": 25,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "The Feud",
+        "Page": 270,
+        "Xp": 75,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Dueling Traditions",
+        "Page": 270,
+        "Xp": 100,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Safer Number Crunching",
+        "Page": 276,
+        "Xp": 50,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Knowledge Check - Methods",
+        "Page": 278,
+        "Xp": 25,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Better Random",
+        "Page": 278,
+        "Xp": 100,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Exepti’s Game",
+        "Page": 290,
+        "Xp": 100,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "The Sieve",
+        "Page": 295,
+        "Xp": 100,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Knowledge Check - Events",
+        "Page": 301,
+        "Xp": 25,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Charberry Trees",
+        "Page": 302,
+        "Xp": 100,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Knowledge Check - Lambdas",
+        "Page": 307,
+        "Xp": 25,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "The Lambda Sieve",
+        "Page": 307,
+        "Xp": 50,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "The Long Game",
+        "Page": 315,
+        "Xp": 100,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "The Potion Masters of Pattren",
+        "Page": 324,
+        "Xp": 150,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Knowledge Check - Operators",
+        "Page": 331,
+        "Xp": 25,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Navigating Operand City",
+        "Page": 331,
+        "Xp": 100,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Indexing Operand City",
+        "Page": 332,
+        "Xp": 75,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Converting Directions to Offsets",
+        "Page": 332,
+        "Xp": 50,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Knowledge Check - Queries",
+        "Page": 341,
+        "Xp": 25,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "The Three Lenses",
+        "Page": 342,
+        "Xp": 100,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "The Repeating Stream",
+        "Page": 349,
+        "Xp": 150,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Knowledge Check - Async",
+        "Page": 359,
+        "Xp": 25,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Asynchronous Random Words",
+        "Page": 359,
+        "Xp": 150,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Many Random Words",
+        "Page": 360,
+        "Xp": 50,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Uniter of Adds",
+        "Page": 365,
+        "Xp": 75,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "The Robot Factory",
+        "Page": 366,
+        "Xp": 100,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Knowledge Check - Unsafe Code",
+        "Page": 372,
+        "Xp": 25,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Knowledge Check - Other Features",
+        "Page": 392,
+        "Xp": 25,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Colored Console",
+        "Page": 397,
+        "Xp": 100,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "The Great Humanizer",
+        "Page": 398,
+        "Xp": 100,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Knowledge Check - Compiling",
+        "Page": 403,
+        "Xp": 25,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Knowledge Check - .NET",
+        "Page": 408,
+        "Xp": 25,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      },
+      {
+        "Name": "Altar of Publication",
+        "Page": 413,
+        "Xp": 100,
+        "PartId": "af6bd314-6f77-47bb-179a-08daadc758d8",
+        "part": null
+      }
+    ],
+    "achievementCount": 33
+  },
+  {
+    "Name": "Part 4: The Endgame",
+    "SortOrder": 4,
+    "Achievements": [
+      {
+        "Name": "Core Game: Building Character",
+        "Page": 419,
+        "Xp": 300,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Core Game: The True Programmer",
+        "Page": 420,
+        "Xp": 100,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Core Game: Actions and Players",
+        "Page": 420,
+        "Xp": 300,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Core Game: Attacks",
+        "Page": 421,
+        "Xp": 200,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Core Game: Damage and HP",
+        "Page": 421,
+        "Xp": 150,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Core Game: Death",
+        "Page": 422,
+        "Xp": 150,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Core Game: Battle Series",
+        "Page": 422,
+        "Xp": 150,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Core Game: The Uncoded One",
+        "Page": 422,
+        "Xp": 100,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Core Game: The Player Decides",
+        "Page": 423,
+        "Xp": 100,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Expansion: The Game’s Status",
+        "Page": 423,
+        "Xp": 100,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Expansion: Items",
+        "Page": 424,
+        "Xp": 200,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Expansion: Gear",
+        "Page": 424,
+        "Xp": 300,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Expansion: Stolen Inventory",
+        "Page": 425,
+        "Xp": 200,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Expansion: Vin Fletcher",
+        "Page": 426,
+        "Xp": 200,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Expansion: Attack Modifiers",
+        "Page": 426,
+        "Xp": 200,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Expansion: Damage Types",
+        "Page": 426,
+        "Xp": 200,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Expansion: Making it Yours",
+        "Page": 427,
+        "Xp": 200,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Expansion: Restoring Balance",
+        "Page": 428,
+        "Xp": 150,
+        "PartId": "f1614e4b-853b-442f-ea97-08dab0037988",
+        "part": null
+      }
+    ],
+    "achievementCount": 18
+  },
+  {
+    "Name": "Part 5: Bonus Levels",
+    "SortOrder": 5,
+    "Achievements": [
+      {
+        "Name": "Knowledge Check - Visual Studio",
+        "Page": 441,
+        "Xp": 25,
+        "PartId": "0e4f7402-2940-489f-ea98-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Knowledge Check - Compiler Errors",
+        "Page": 446,
+        "Xp": 25,
+        "PartId": "0e4f7402-2940-489f-ea98-08dab0037988",
+        "part": null
+      },
+      {
+        "Name": "Knowledge Check - Debugging",
+        "Page": 451,
+        "Xp": 25,
+        "PartId": "0e4f7402-2940-489f-ea98-08dab0037988",
+        "part": null
+      }
+    ],
+    "achievementCount": 3
+  }
+]

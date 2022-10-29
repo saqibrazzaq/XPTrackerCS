@@ -71,6 +71,8 @@ namespace api.Services
             RemovePreviouslyDeletedAchievements(playerId);
             AddNewlyAddedAchievements(playerId);
             UpdatePlayerExperience(playerId);
+
+            _repositoryManager.Save();
         }
 
         private void UpdatePlayerExperience(Guid playerId)
@@ -86,7 +88,6 @@ namespace api.Services
                 .FirstOrDefault();
             if (player == null) throw new NotFoundException("No player found with id " + playerId);
             player.Experience = experience;
-            _repositoryManager.Save();
         }
 
         private void AddNewlyAddedAchievements(Guid playerId)
@@ -100,18 +101,20 @@ namespace api.Services
                 x => playerAchievements.Contains(x.AchievementId) == false,
                 true);
 
-            foreach(Achievement achievement in achievements)
+            if (achievements != null && achievements.Count() > 0)
             {
-                _repositoryManager.PlayerAchievementRepository.Create(
-                    new PlayerAchievement
-                    {
-                        AchievementId = achievement.AchievementId,
-                        PlayerId = playerId,
-                        IsComplete = false
-                    });
+                foreach (Achievement achievement in achievements)
+                {
+                    _repositoryManager.PlayerAchievementRepository.Create(
+                        new PlayerAchievement
+                        {
+                            AchievementId = achievement.AchievementId,
+                            PlayerId = playerId,
+                            IsComplete = false
+                        });
+                }
             }
-
-            _repositoryManager.Save();
+            
         }
 
         private void RemovePreviouslyDeletedAchievements(Guid playerId)
@@ -124,12 +127,14 @@ namespace api.Services
                 achievements.Contains(x.AchievementId ?? Guid.Empty) == false,
                 true);
 
-            foreach (PlayerAchievement playerAchievement in playerAchievements)
+            if (playerAchievements != null && playerAchievements.Count() > 0)
             {
-                _repositoryManager.PlayerAchievementRepository.Delete(playerAchievement);
+                foreach (PlayerAchievement playerAchievement in playerAchievements)
+                {
+                    _repositoryManager.PlayerAchievementRepository.Delete(playerAchievement);
+                }
             }
-
-            _repositoryManager.Save();
+            
         }
 
         public IEnumerable<PlayerAchievementResponseDto> GetAchievements(Guid playerId,

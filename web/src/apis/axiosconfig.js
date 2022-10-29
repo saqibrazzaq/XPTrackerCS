@@ -1,7 +1,8 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://localhost:50531/api"
+  //baseURL: "http://192.168.18.100:50530/api"
+  baseURL: "https://localhost:7119/api"
 });
 
 // defining a custom error handler for all APIs

@@ -80,5 +80,12 @@ namespace api.Services
             _mapper.Map(dto, entity);
             _repositoryManager.Save();
         }
+
+        public int Count()
+        {
+            var count = _repositoryManager.PartRepository.FindAll(false)
+                .Count();
+            return count;
+        }
     }
 }

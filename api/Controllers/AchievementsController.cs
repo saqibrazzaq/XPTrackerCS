@@ -54,6 +54,18 @@ namespace api.Controllers
             return NoContent();
         }
 
-        
+        [HttpPost("reset")]
+        public IActionResult Reset()
+        {
+            _achievementService.Reset();
+            return NoContent();
+        }
+
+        [HttpGet("count")]
+        public IActionResult Count()
+        {
+            var count = _achievementService.Count();
+            return Ok(count);
+        }
     }
 }

@@ -12,6 +12,16 @@ export const AchievementApi = {
 
     return response.data
   },
+  count: async function (cancel = false) {
+    const response = await api.request({
+      url: `/achievements/count`,
+      method: "GET",
+      // retrieving the signal value by using the property name
+      signal: cancel ? cancelApiObject[this.count.name].handleRequestCancellation().signal : undefined,
+    })
+
+    return response.data
+  },
   list: async function (partId, cancel = false) {
     const response = await api.request({
       url: "/achievements/list/" + partId,
@@ -45,6 +55,15 @@ export const AchievementApi = {
       method: "DELETE",
       // retrieving the signal value by using the property name
       signal: cancel ? cancelApiObject[this.delete.name].handleRequestCancellation().signal : undefined,
+    })
+
+    return response.data
+  },
+  reset: async function (cancel = false) {
+    const response = await api.request({
+      url: `/achievements/reset`,
+      method: "POST",
+      signal: cancel ? cancelApiObject[this.reset.name].handleRequestCancellation().signal : undefined,
     })
 
     return response.data

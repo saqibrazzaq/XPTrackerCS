@@ -1,4 +1,5 @@
 ﻿using api.Dtos;
+using api.Entities;
 
 namespace api.Services
 {
@@ -9,5 +10,7 @@ namespace api.Services
         void Delete(Guid achievementId);
         AchievementResponseDto Get(Guid achievementId);
         IEnumerable<AchievementResponseDto> FindByPartId(Guid partId);
+        void Reset();
+        int Count();
     }
 }

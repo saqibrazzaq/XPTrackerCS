@@ -21,6 +21,15 @@ export const PartApi = {
 
     return response.data
   },
+  count: async function (cancel = false) {
+    const response = await api.request({
+      url: "/parts/count",
+      method: "GET",
+      signal: cancel ? cancelApiObject[this.count.name].handleRequestCancellation().signal : undefined,
+    })
+
+    return response.data
+  },
   create: async function (part, cancel = false) {
     const response = await api.request({
       url: `/parts`,

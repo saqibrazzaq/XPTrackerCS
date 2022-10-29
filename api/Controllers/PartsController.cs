@@ -53,5 +53,12 @@ namespace api.Controllers
             _partService.Delete(partId);
             return NoContent();
         }
+
+        [HttpGet("count")]
+        public IActionResult Count()
+        {
+            var count = _partService.Count();
+            return Ok(count);
+        }
     }
 }

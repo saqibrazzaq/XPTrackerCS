@@ -30,6 +30,13 @@ const Parts = () => {
         <Link
           ml={2}
           as={RouteLink}
+          to={"/parts/reset"}
+        >
+          <Button colorScheme={"red"}>Reset Achievements</Button>
+        </Link>
+        <Link
+          ml={2}
+          as={RouteLink}
           to={"/parts/update"}
         >
           <Button colorScheme={"blue"}>Create Part</Button>

@@ -9,5 +9,6 @@ namespace api.Services
         void Delete(Guid partId);
         IEnumerable<PartResponseDto> GetAll();
         PartResponseDto Get(Guid partId);
+        int Count();
     }
 }

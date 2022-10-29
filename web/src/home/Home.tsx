@@ -74,8 +74,11 @@ const Home = () => {
   }, [selectedPlayer?.playerId, selectedPlayer?.experience]);
 
   useEffect(() => {
+    console.log("Load player achievements. Parts: " + parts.length + 
+      ", player: " + selectedPlayer?.playerId + 
+      ", tab: " + tabIndex);
     loadPlayerAchievements(parts[tabIndex]?.partId);
-  }, [parts, selectedPlayer?.playerId, tabIndex]);
+  }, [parts, tabIndex]);
 
   const loadParts = () => {
     PartApi.getAll().then((res) => setParts(res));
@@ -95,6 +98,7 @@ const Home = () => {
   const loadSelectedPlayer = (playerId?: string) => {
     PlayerApi.get(playerId).then((res) => {
       setSelectedPlayer(res);
+      console.log("Player updated")
     });
   };
 
@@ -122,6 +126,7 @@ const Home = () => {
         let index = e.target.selectedIndex - 1;
         loadSelectedPlayer(e.target.value);
         if (index < 0) setSelectedPlayer(new PlayerResponseDto());
+        console.log("player change")
       }}
     >
       {players.map((item) => (

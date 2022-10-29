@@ -32,6 +32,13 @@ const Levels = () => {
           as={RouteLink}
           to={"/levels/update"}
         >
+          <Button colorScheme={"red"}>Reset Levels</Button>
+        </Link>
+        <Link
+          ml={2}
+          as={RouteLink}
+          to={"/levels/update"}
+        >
           <Button colorScheme={"blue"}>Create Level</Button>
         </Link>
       </Box>

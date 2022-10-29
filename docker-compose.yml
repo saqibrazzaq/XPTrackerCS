@@ -11,6 +11,7 @@ services:
       - db
 
   web:
+    image: saqibrazzaq/xptrackercs_web
     container_name: xptrackercs_web
     build: ./web
     ports:
