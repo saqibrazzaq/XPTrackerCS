@@ -10,5 +10,7 @@ namespace api.Services
         IEnumerable<LevelResponseDto> GetAll();
         LevelResponseDto Get(Guid levelId);
         LevelResponseDto FindByExperience(int exp);
+        void Reset();
+        int Count();
     }
 }

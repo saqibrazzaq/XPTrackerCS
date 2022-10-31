@@ -13,14 +13,30 @@ services:
   web:
     image: saqibrazzaq/xptrackercs_web
     container_name: xptrackercs_web
-    build: ./web
-    ports:
-      - '3000:3000'
+    environment:
+      VIRTUAL_HOST: xptrackercs-web.saqibrazzaq.com
+      LETSENCRYPT_HOST: xptrackercs-web.saqibrazzaq.com
+      LETSENCRYPT_EMAIL: "saqibrazzaq@gmail.com"
+      CHOKIDAR_USEPOLLING: true
+    build: 
+      context: ./web
+      #dockerfile: web/Dockerfile
+      target: production
+    expose:
+      - 80
     stdin_open: true
     tty: true
     depends_on:
       - api
+    networks:
+      - nginx-proxy
 
   db:
     image: mcr.microsoft.com/mssql/server:2017-latest
     container_name: xptrackercs_db
+
+networks:
+  nginx-proxy:
+    external: true
+  xptrackercs_db:
+    internal: true

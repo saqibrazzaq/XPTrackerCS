@@ -61,5 +61,19 @@ namespace api.Controllers
             _levelService.Delete(levelId);
             return NoContent();
         }
+
+        [HttpPost("reset")]
+        public IActionResult Reset()
+        {
+            _levelService.Reset();
+            return NoContent();
+        }
+
+        [HttpGet("count")]
+        public IActionResult Count()
+        {
+            var res = _levelService.Count();
+            return Ok(res);
+        }
     }
 }

@@ -27,51 +27,45 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Link as RouteLink, useNavigate, useParams } from "react-router-dom";
-import { AchievementApi } from "../apis/achievementApi";
-import { PartApi } from "../apis/partApi";
+import { LevelApi } from "../apis/levelApi";
 
-const Reset = () => {
+const ResetLevels = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef<HTMLAnchorElement>(null);
 
-  const [partsCount, setPartsCount] = useState<number>(0);
-  const [achievementsCount, setAchievementsCount] = useState<number>(0);
-
+  const [levelsCount, setLevelsCount] = useState<number>(0);
+  
   const toast = useToast();
   const navigate = useNavigate();
   
-  const resetAchievements = () => {
+  const resetLevels = () => {
     onClose();
-    AchievementApi.reset().then(res => {
+    LevelApi.reset().then(res => {
       toast({
         title: "Success",
-        description: "Achievements reset successfully.",
+        description: "Levels reset successfully.",
         status: "success",
         position: "top-right",
       });
-      navigate("/parts");
+      navigate("/levels");
     });
   };
 
-  const showPartsInfo = () => (
+  const showLevelsInfo = () => (
     <div>
       <TableContainer>
         <Table variant="simple">
           <Tbody>
             <Tr>
-              <Th>Parts count</Th>
-              <Td>{partsCount}</Td>
-            </Tr>
-            <Tr>
-              <Th>Achievements count</Th>
-              <Td>{achievementsCount}</Td>
+              <Th>Levels count</Th>
+              <Td>{levelsCount}</Td>
             </Tr>
           </Tbody>
         </Table>
       </TableContainer>
       <HStack pt={4} spacing={4}>
         <Link onClick={onOpen}>
-          <Button type="button" colorScheme={"red"}>YES, I WANT TO RESET ALL PARTS AND ACHIEVEMENTS</Button>
+          <Button type="button" colorScheme={"red"}>YES, I WANT TO RESET ALL LEVELS</Button>
         </Link>
       </HStack>
     </div>
@@ -86,7 +80,7 @@ const Reset = () => {
       <AlertDialogOverlay>
         <AlertDialogContent>
           <AlertDialogHeader fontSize="lg" fontWeight="bold">
-            Reset All Parts and Achievements
+            Reset All Levels
           </AlertDialogHeader>
 
           <AlertDialogBody>
@@ -97,8 +91,8 @@ const Reset = () => {
             <Link ref={cancelRef} onClick={onClose}>
               <Button type="button" colorScheme={"gray"}>Cancel</Button>
             </Link>
-            <Link onClick={resetAchievements} ml={3}>
-              <Button type="submit" colorScheme={"red"}>Reset Achievements</Button>
+            <Link onClick={resetLevels} ml={3}>
+              <Button type="submit" colorScheme={"red"}>Reset Levels</Button>
             </Link>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -107,33 +101,25 @@ const Reset = () => {
   );
 
   useEffect(() => {
-    loadPartsCount();
-    loadAchievementsCount();
+    loadLevelsCount();
   }, []);
 
-  const loadPartsCount = () => {
-    PartApi.count().then(res => {
-      setPartsCount(res);
-      //console.log("parts count: " + res);
+  const loadLevelsCount = () => {
+    LevelApi.count().then(res => {
+      setLevelsCount(res);
+      // console.log("parts count: " + res);
     })
     
   };
 
-  const loadAchievementsCount = () => {
-    AchievementApi.count().then(res => {
-      setAchievementsCount(res);
-      //console.log("Achievements count: " + res);
-    });
-  }
-
   const displayHeading = () => (
     <Flex>
       <Box>
-        <Heading fontSize={"xl"}>Reset All Parts and Achievements</Heading>
+        <Heading fontSize={"xl"}>Reset All Levels</Heading>
       </Box>
       <Spacer />
       <Box>
-        <Link ml={2} as={RouteLink} to={"/parts"}>
+        <Link ml={2} as={RouteLink} to={"/levels"}>
           <Button type="button" colorScheme={"gray"}>Back</Button>
         </Link>
       </Box>
@@ -144,13 +130,13 @@ const Reset = () => {
       <Stack spacing={4} as={Container} maxW={"3xl"}>
         {displayHeading()}
         <Text fontSize="xl">
-          Are you sure you want to RESET All the Parts and Achievements?
+          Are you sure you want to RESET All Levels?
         </Text>
-        {showPartsInfo()}
+        {showLevelsInfo()}
       </Stack>
       {showAlertDialog()}
     </Box>
   )
 }
 
-export default Reset
+export default ResetLevels

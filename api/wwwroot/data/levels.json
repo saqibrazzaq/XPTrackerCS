@@ -1,0 +1,52 @@
+[
+  {
+    "Name": "Level 1",
+    "MinExp": 0,
+    "MaxExp": 200
+  },
+  {
+    "Name": "Level 2",
+    "MinExp": 201,
+    "MaxExp": 600
+  },
+  {
+    "Name": "Level 3",
+    "MinExp": 601,
+    "MaxExp": 1200
+  },
+  {
+    "Name": "Level 4",
+    "MinExp": 1201,
+    "MaxExp": 2000
+  },
+  {
+    "Name": "Level 5",
+    "MinExp": 2001,
+    "MaxExp": 3000
+  },
+  {
+    "Name": "Level 6",
+    "MinExp": 3001,
+    "MaxExp": 4200
+  },
+  {
+    "Name": "Level 7",
+    "MinExp": 4201,
+    "MaxExp": 5600
+  },
+  {
+    "Name": "Level 8",
+    "MinExp": 5601,
+    "MaxExp": 7200
+  },
+  {
+    "Name": "Level 9",
+    "MinExp": 7201,
+    "MaxExp": 9000
+  },
+  {
+    "Name": "Level 10",
+    "MinExp": 9001,
+    "MaxExp": 99999
+  }
+]

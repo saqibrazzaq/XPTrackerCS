@@ -30,7 +30,7 @@ const Levels = () => {
         <Link
           ml={2}
           as={RouteLink}
-          to={"/levels/update"}
+          to={"/levels/reset"}
         >
           <Button colorScheme={"red"}>Reset Levels</Button>
         </Link>

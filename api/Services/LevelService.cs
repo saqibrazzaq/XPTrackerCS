@@ -3,6 +3,7 @@ using api.Entities;
 using api.Exceptions;
 using api.Repository;
 using AutoMapper;
+using System.Text.Json;
 
 namespace api.Services
 {
@@ -10,11 +11,14 @@ namespace api.Services
     {
         private readonly IRepositoryManager _repositoryManager;
         private readonly IMapper _mapper;
-        public LevelService(IRepositoryManager repositoryManager, 
-            IMapper mapper)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public LevelService(IRepositoryManager repositoryManager,
+            IMapper mapper,
+            IWebHostEnvironment webHostEnvironment)
         {
             _repositoryManager = repositoryManager;
             _mapper = mapper;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public LevelResponseDto Create(LevelCreateDto dto)
@@ -70,6 +74,54 @@ namespace api.Services
                 .FirstOrDefault();
             if (entity == null) throw new NotFoundException("No level found");
             return _mapper.Map<LevelResponseDto>(entity);
+        }
+
+        public void Reset()
+        {
+            DeleteAllLevels();
+            ImportLevels();
+        }
+
+        private void ImportLevels()
+        {
+            var levels = ReadLevelsFromJson();
+            if (levels != null && levels.Count() > 0)
+            {
+                foreach(var level in levels)
+                {
+                    _repositoryManager.LevelRepository.Create(level);
+                }
+                _repositoryManager.Save();
+            }
+        }
+
+        private IEnumerable<Level>? ReadLevelsFromJson()
+        {
+            var rootPath = _webHostEnvironment.WebRootPath;
+            var jsonFilePath = Path.Combine(rootPath, "data", "levels.json");
+            var jsonData = File.ReadAllText(jsonFilePath);
+            var levels = JsonSerializer.Deserialize<IEnumerable<Level>>(jsonData);
+            return levels;
+        }
+
+        private void DeleteAllLevels()
+        {
+            var levels = _repositoryManager.LevelRepository.FindAll(true);
+            if (levels != null && levels.Count() > 0)
+            {
+                foreach(var level in levels)
+                {
+                    _repositoryManager.LevelRepository.Delete(level);
+                }
+                _repositoryManager.Save();
+            }
+        }
+
+        public int Count()
+        {
+            var count = _repositoryManager.LevelRepository.FindAll(false)
+                .Count();
+            return count;
         }
     }
 }

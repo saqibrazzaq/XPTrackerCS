@@ -20,7 +20,9 @@ namespace api.Extensions
                     .WithOrigins(
                         "https://localhost:3000",
                         "http://localhost:3000",
-                        "http://192.168.18.100:3000")
+                        "http://192.168.18.100:3000",
+                        "http://192.168.18.100",
+                        "https://xptrackercs-web.saqibrazzaq.com")
                     .AllowCredentials()
                     .AllowAnyMethod()
                     .AllowAnyHeader();

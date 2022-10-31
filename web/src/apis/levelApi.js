@@ -59,6 +59,25 @@ export const LevelApi = {
 
     return response.data
   },
+  reset: async function (cancel = false) {
+    const response = await api.request({
+      url: `/levels/reset`,
+      method: "POST",
+      signal: cancel ? cancelApiObject[this.reset.name].handleRequestCancellation().signal : undefined,
+    })
+
+    return response.data
+  },
+  count: async function (cancel = false) {
+    const response = await api.request({
+      url: `/levels/count`,
+      method: "GET",
+      // retrieving the signal value by using the property name
+      signal: cancel ? cancelApiObject[this.count.name].handleRequestCancellation().signal : undefined,
+    })
+
+    return response.data
+  },
 }
 
 // defining the cancel API object for ProductAPI
