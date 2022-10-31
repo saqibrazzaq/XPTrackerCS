@@ -10,6 +10,7 @@ const Players = () => {
   const [players, setPlayers] = useState<PlayerResponseDto[]>([]);
 
   useEffect(() => {
+    console.log("URL: " + process.env.REACT_APP_API_BASE_URL)
     loadPlayers();
   }, []);
 

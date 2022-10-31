@@ -3,7 +3,8 @@ import axios from "axios";
 export const api = axios.create({
   ///baseURL: "http://192.168.18.100:50530/api"
   // baseURL: "https://localhost:7119/api"
-  baseURL: "https://xptrackercs-api.saqibrazzaq.com/api",
+  //baseURL: "https://xptrackercs-api.saqibrazzaq.com/api",
+  baseURL: process.env.REACT_APP_API_BASE_URL,
 });
 
 // defining a custom error handler for all APIs
